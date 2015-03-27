@@ -16,3 +16,6 @@ bin
 tmp
 .ruby-version
 .rvmrc
+
+*.info
+vendor/*

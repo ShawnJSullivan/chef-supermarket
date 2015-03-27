@@ -7,7 +7,7 @@ description 'Stands up the Supermarket application stack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
 %w(yum apt build-essential python nodejs postgresql redisio git nginx runit rubies packagecloud).each do |dep|
-  depends dep
+  depends dep 
 end
 
 supports 'ubuntu'

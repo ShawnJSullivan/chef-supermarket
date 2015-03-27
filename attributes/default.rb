@@ -25,12 +25,30 @@ default['postgres']['version'] = '9.1'
 default['redis']['maxmemory'] = '64mb'
 
 default['supermarket']['home'] = '/srv/supermarket'
-default['supermarket']['host'] = 'supermarket.getchef.com'
-default['supermarket']['protocol'] = 'https'
+default['supermarket']['host'] = '33.33.33.10'
+default['supermarket']['protocol'] = 'http'
 default['supermarket']['sidekiq']['concurrency'] = '25'
 default['supermarket']['database']['pool'] = 25
 default['supermarket']['chef_vault'] = false
 default['supermarket']['data_bag'] = 'supermarket'
+
+default['supermarket']['_postgres'] = true
+default['supermarket']['_redis'] = true
+default['supermarket']['_sidekiq'] = true
+default['supermarket']['_ruby'] = true
+default['supermarket']['_nginx'] = true
+default['supermarket']['_users'] = true
+default['supermarket']['_runit'] = true
+default['supermarket']['_application'] = true
+
+
+
+
+
+
+
+
+
 
 # used primarily by CHEF operations to handle legacy tools and
 # configuration pointing at the HTTP (non-SSL) only
