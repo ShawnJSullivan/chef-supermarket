@@ -21,7 +21,7 @@ include_recipe 'build-essential'
 include_recipe 'python'
 include_recipe 'nodejs'
 
-include_recipe 'supermarket::_postgres' if node['supermarket']['_postgres'] 
+include_recipe 'supermarket::_postgres' if node['supermarket']['_postgres']
 include_recipe 'supermarket::_redis' if node['supermarket']['_redis']
 include_recipe 'supermarket::_sidekiq' if node['supermarket']['_sidekiq']
 
@@ -32,5 +32,3 @@ include_recipe 'supermarket::_nginx' if node['supermarket']['_nginx']
 include_recipe 'supermarket::_users' if node['supermarket']['_users']
 include_recipe 'supermarket::_runit' if node['supermarket']['_runit']
 include_recipe 'supermarket::_application' if node['supermarket']['_application']
-
-

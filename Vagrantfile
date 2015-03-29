@@ -9,17 +9,16 @@ VM_PORT = (ENV['PORT'] || '3000').to_i
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.omnibus.chef_version = :latest
-  config.vm.hostname = "vagrant-test-haproxy"
+  config.vm.hostname = 'vagrant-test-haproxy'
 
- 
   config.vm.network :forwarded_port, guest: 3000, host: VM_PORT
   config.vm.network :forwarded_port, guest: 80, host: 8080
-  #in the above line I forward port 80 despite not understanding WHY supermarket runs on port 80 and not 3000
+  # in the above line I forward port 80 despite not understanding WHY supermarket runs on port 80 and not 3000
   config.vm.synced_folder './', '/supermarket', nfs: VM_NFS
   config.vm.synced_folder './', '/vagrant', disabled: true
 
-  config.vm.provider :virtualbox do |vb, override|
-    config.vm.box     = "chef/centos-6.5"
+  config.vm.provider :virtualbox do |vb, _override|
+    config.vm.box     = 'chef/centos-6.5'
 
     vb.customize ['modifyvm', :id, '--memory', VM_MEMORY]
     vb.customize ['modifyvm', :id, '--cpus', VM_CPUS]
@@ -33,8 +32,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "~/chef-repo/cookbooks"
-    chef.data_bags_path = "~/chef-repo/data_bags"
+    chef.cookbooks_path = '~/chef-repo/cookbooks'
+    chef.data_bags_path = '~/chef-repo/data_bags'
 
     chef.formatter = 'doc'
     chef.log_level = :warn
@@ -44,14 +43,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         user: 'vagrant',
         database: 'supermarket_development',
         auth_method: 'trust',
-        password:{
-          postgres:"password"
+        password: {
+          postgres: 'password'
         }
       },
       supermarket: {
         host: 'localhost',
         port: VM_PORT
-#        port: 8080
+        # port: 8080
       }
     }
 

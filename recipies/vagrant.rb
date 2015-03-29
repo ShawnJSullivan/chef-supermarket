@@ -27,7 +27,7 @@ execute 'dotenv[setup]' do
   cwd '/supermarket'
   command 'cp .env.dev .env'
   not_if '(test -e /supermarket/.env)'
-  #above guard seems faulty!
+  # above guard seems faulty!
 end
 
 execute 'bundle[install]' do
