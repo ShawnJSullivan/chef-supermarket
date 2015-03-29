@@ -41,15 +41,6 @@ default['supermarket']['_users'] = true
 default['supermarket']['_runit'] = true
 default['supermarket']['_application'] = true
 
-
-
-
-
-
-
-
-
-
 # used primarily by CHEF operations to handle legacy tools and
 # configuration pointing at the HTTP (non-SSL) only
 # `cookbooks.opscode.com` and `api.berkshelf.com`, this must be set as

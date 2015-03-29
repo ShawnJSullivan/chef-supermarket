@@ -1,4 +1,5 @@
 module Supermarket
+  #
   module Config
     #
     # Take a hash of data from a data bag/vault and create a list of variables
@@ -16,7 +17,7 @@ module Supermarket
     # WUT=4
     #
     def self.environment_variables_from(data)
-      data.reduce([]) do |result, (k, v)|
+      data.each_with_object([]) do |result, (k, v)|
         if v.is_a?(String) || v.is_a?(Numeric) || v == true || v == false
           result << "#{k.upcase}=#{v}"
         end
