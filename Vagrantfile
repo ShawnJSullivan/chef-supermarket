@@ -17,6 +17,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #in the above line I forward port 80 despite not understanding WHY supermarket runs on port 80 and not 3000
   config.vm.synced_folder './', '/supermarket', nfs: VM_NFS
   config.vm.synced_folder './', '/vagrant', disabled: true
+  config.berkshelf.enabled = false
+  
 
   config.vm.provider :virtualbox do |vb, override|
     config.vm.box     = "chef/centos-6.5"
@@ -33,8 +35,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "~/chef-repo/cookbooks"
-    chef.data_bags_path = "~/chef-repo/data_bags"
+    chef.cookbooks_path = "~/development/chef-repo/cookbooks"
+    chef.data_bags_path = "~/development/chef-repo/data_bags"
+    chef.roles_path = "~/development/chef-repo/roles"
+    chef.add_role("supermarket")
 
     chef.formatter = 'doc'
     chef.log_level = :warn
@@ -56,7 +60,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-      'recipe[supermarket::default]'
+    #  'recipe[supermarket::default]'
+       'role[supermarket]'
     ]
   end
 end
