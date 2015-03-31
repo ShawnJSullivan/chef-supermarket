@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+package 'postgresql-devel' do
+  action :install
+end
 
 directory node['supermarket']['home'] do
   user 'supermarket'
