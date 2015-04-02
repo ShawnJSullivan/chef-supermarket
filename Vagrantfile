@@ -34,7 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vmf.vmx['numvcpus'] = VM_CPUS
   end
 
-  config.vm.provision :chef_solo do |chef|
+  config.vm.provision :chef_zero do |chef|
     chef.cookbooks_path = "~/development/chef-repo/cookbooks"
     chef.data_bags_path = "~/development/chef-repo/data_bags"
     chef.roles_path = "~/development/chef-repo/roles"

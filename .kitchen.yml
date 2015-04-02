@@ -14,15 +14,15 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-12.04
-    run_list:
-    - recipe[apt]
-  - name: ubuntu-14.04
-    run_list:
-    - recipe[apt]
-    attributes:
-      postgres:
-        version: "9.3"
+  #- name: ubuntu-12.04
+  #  run_list:
+  #  - recipe[apt]
+  #- name: ubuntu-14.04
+  #  run_list:
+  #  - recipe[apt]
+  #  attributes:
+  #    postgres:
+  #      version: "9.3"
   - name: centos-6.5
     run_list:
       - recipe[yum]
@@ -31,7 +31,8 @@ suites:
   - name: default
     data_bags_path: data_bags
     run_list:
-      - recipe[supermarket::default]
+     # - recipe[supermarket::default]
+      - role[supermarket]
     attributes:
       postgres:
         auth_method: trust
