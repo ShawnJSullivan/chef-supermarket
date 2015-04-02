@@ -41,7 +41,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_role("supermarket")
 
     chef.formatter = 'doc'
-    chef.log_level = :warn
+    chef.log_level = :debug
+
 
     chef.json = {
       postgresql: {
