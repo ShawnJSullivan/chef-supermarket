@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       node.vm.hostname = "supermarket#{i}"
       # configure network
       node.vm.network 'private_network', ip: "192.168.50.13#{i}"
-   
+
       # override VM provider settings for memory and cpu
       node.vm.provider 'virtualbox' do |v|
         v.name = "supermarket#{i}"

@@ -26,6 +26,7 @@ default['redis']['maxmemory'] = '64mb'
 
 default['supermarket']['home'] = '/srv/supermarket'
 default['supermarket']['host'] = '192.168.50.131'
+default['supermarket']['port'] = '80'
 default['supermarket']['protocol'] = 'http'
 default['supermarket']['sidekiq']['concurrency'] = '25'
 default['supermarket']['database']['pool'] = 25
