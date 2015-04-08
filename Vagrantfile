@@ -21,8 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       node.vm.hostname = "supermarket#{i}"
       # configure network
       node.vm.network 'private_network', ip: "192.168.50.13#{i}"
-      #config.vm.network :forwarded_port, guest: 80, host: 80
-
+   
       # override VM provider settings for memory and cpu
       node.vm.provider 'virtualbox' do |v|
         v.name = "supermarket#{i}"
@@ -38,20 +37,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         chef.data_bags_path = "~/development/chef-repo/data_bags"
         chef.roles_path = "~/development/chef-repo/roles"
         chef.add_role 'supermarket'
-        chef.json = {
-          postgresql: {
-            user: 'vagrant',
-            database: 'supermarket_development',
-            auth_method: 'trust',
-            password:{
-              postgres:"password"
-            }
-          },
-          supermarket: {
-            host: 'localhost',
-            port: 3000
-          }
-        }
       end
     end
   end

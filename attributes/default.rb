@@ -25,7 +25,7 @@ default['postgres']['version'] = '9.1'
 default['redis']['maxmemory'] = '64mb'
 
 default['supermarket']['home'] = '/srv/supermarket'
-default['supermarket']['host'] = '33.33.33.10'
+default['supermarket']['host'] = '192.168.50.131'
 default['supermarket']['protocol'] = 'http'
 default['supermarket']['sidekiq']['concurrency'] = '25'
 default['supermarket']['database']['pool'] = 25
